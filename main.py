@@ -1,6 +1,6 @@
 from utils import functions as func
 
-file = 'test_data.json'
+file = 'operations.json'
 amount = 5
 
 re_data = func.viewer(file, amount)
