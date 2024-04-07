@@ -14,8 +14,8 @@ def viewer(filepath, amt):
             if transaction['state'] == 'EXECUTED':
                 transaction['datetime'] = datetime.datetime.strptime(transaction['date'], date_entry_pattern)
                 executed_transaction.append(transaction)
-    executed_transaction.sort(key=lambda x: x['datetime'])
-    for transaction in executed_transaction[-amt:]:
+    executed_transaction.sort(key=lambda x: x['datetime'], reverse=True)
+    for transaction in executed_transaction[:amt]:
         regen_trans = {}
         regen_trans['date'] = transaction['datetime'].strftime(date_outlet_pattern)
         if 'from' in transaction.keys():
